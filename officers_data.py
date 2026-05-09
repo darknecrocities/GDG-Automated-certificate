@@ -51,6 +51,7 @@ OFFICERS = [
     {"name": "Mark Harold T. Valderrama", "role": "Finance Staff", "department": "Finance"},
     {"name": "Grant Mihkael D. Quilantang", "role": "Finance Staff", "department": "Finance"},
     {"name": "Nikko S. Parungao", "role": "Finance Staff", "department": "Finance"},
+    {"name": "Jimwel Valdez", "role": "UI/UX Lead", "department": "Tech"},
 ]
 
 QUOTES = [
