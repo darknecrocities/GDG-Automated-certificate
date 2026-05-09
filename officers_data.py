@@ -52,6 +52,10 @@ OFFICERS = [
     {"name": "Grant Mihkael D. Quilantang", "role": "Finance Staff", "department": "Finance"},
     {"name": "Nikko S. Parungao", "role": "Finance Staff", "department": "Finance"},
     {"name": "Jimwel Valdez", "role": "UI/UX Lead", "department": "Tech"},
+    {"name": "Kirk Vallete", "role": "AI/ML Developer", "department": "Tech"},
+    {"name": "Sofia Anne Sarmiento", "role": "UI/UX Designer", "department": "Tech"},
+    {"name": "Francoise Christine O. Gurango", "role": "AI/ML Developer", "department": "Tech"},
+
 ]
 
 QUOTES = [
