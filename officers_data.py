@@ -55,6 +55,8 @@ OFFICERS = [
     {"name": "Kirk Vallete", "role": "AI/ML Developer", "department": "Tech"},
     {"name": "Sofia Anne Sarmiento", "role": "UI/UX Designer", "department": "Tech"},
     {"name": "Francoise Christine O. Gurango", "role": "AI/ML Developer", "department": "Tech"},
+    {"name": "Francine Louise Sanchez", "role": "Consultant", "department": "Tech"},
+    {"name": "Josh Faith Gororspe", "role": "Consultant", "department": "Tech"},
 
 ]
 
