@@ -58,6 +58,7 @@ OFFICERS = [
     {"name": "Francine Louise Sanchez", "role": "Consultant", "department": "Tech"},
     {"name": "Josh Faith Gororspe", "role": "Consultant", "department": "Tech"},
     {"name": "Kervin Clyde Padilla", "role": "Jack of All Trades", "department": "Tech"},
+    {"name": "Phoemela Dela Cruz", "role": "Community Relations Officer", "department": "Public Relation"},
 
 ]
 
