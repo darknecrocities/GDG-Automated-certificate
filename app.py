@@ -219,8 +219,8 @@ with st.sidebar:
     st.markdown("<p style='color:gray; margin-top:0;'>Holy Angel University</p>", unsafe_allow_html=True)
     st.markdown("---")
     
-    # Simplified menu - only Generator remains
-    menu = "Generator"
+    # Updated menu - Generator and Gallery
+    menu = st.radio("Navigation", ["Generator", "Farewell Gallery"], label_visibility="collapsed")
     
     st.markdown("---")
     st.info("💡 Pro Tip: Use High Quality Export for printing certificates.")
@@ -285,6 +285,32 @@ if menu == "Generator":
             </div>
             """, unsafe_allow_html=True)
 
+
+# Gallery View
+elif menu == "Farewell Gallery":
+    st.markdown("<h2 style='color:#00f2fe;'>Farewell Gallery</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color:gray;'>A visual tribute to our dedicated officers. Onward to your next adventure!</p>", unsafe_allow_html=True)
+    
+    photo_dir = "assets/officer_photos"
+    if os.path.exists(photo_dir):
+        photos = [os.path.join(photo_dir, f) for f in os.listdir(photo_dir) if f.endswith(('.jpg', '.png', '.jpeg'))]
+        photos.sort() # Ensure consistent order
+        
+        if photos:
+            # Display in a grid
+            cols_per_row = 3
+            for i in range(0, len(photos), cols_per_row):
+                row_photos = photos[i:i+cols_per_row]
+                columns = st.columns(cols_per_row)
+                for col, photo_path in zip(columns, row_photos):
+                    with col:
+                        st.markdown("<div class='glass-card' style='padding: 0.5rem;'>", unsafe_allow_html=True)
+                        st.image(photo_path, use_container_width=True)
+                        st.markdown("</div>", unsafe_allow_html=True)
+        else:
+            st.warning("No photos found in the gallery folder.")
+    else:
+        st.error("Gallery folder not found. Please run the download script.")
 
 # Footer
 st.markdown("---")
