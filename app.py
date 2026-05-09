@@ -168,21 +168,34 @@ def generate_certificate(name, role, date):
     font_bold_path = "assets/fonts/Inter-Bold.ttf"
     font_regular_path = "assets/fonts/Inter-Regular.ttf"
     
-    # Fallback paths for Mac
+    # Fallback paths for different OS environments (Streamlit Cloud uses Linux)
+    # 1. Mac Paths
     mac_bold = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
     mac_regular = "/System/Library/Fonts/Supplemental/Arial.ttf"
     
-    def load_font(path, size, fallback_path):
+    # 2. Linux Paths (Streamlit Cloud / Debian)
+    linux_bold = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+    linux_regular = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+    
+    # 3. Alternative Linux Paths
+    linux_bold_alt = "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"
+    linux_regular_alt = "/usr/share/fonts/truetype/liberation/LiberationSans.ttf"
+    
+    def load_font(path, size, fallbacks):
         try:
+            # Try local file first
             return ImageFont.truetype(path, size)
         except:
-            try:
-                return ImageFont.truetype(fallback_path, size)
-            except:
-                return ImageFont.load_default()
+            for fallback in fallbacks:
+                try:
+                    return ImageFont.truetype(fallback, size)
+                except:
+                    continue
+            # Absolute last resort (will be small)
+            return ImageFont.load_default()
 
-    font_bold = load_font(font_bold_path, BOLD_SIZE, mac_bold)
-    font_regular = load_font(font_regular_path, REGULAR_SIZE, mac_regular)
+    font_bold = load_font(font_bold_path, BOLD_SIZE, [mac_bold, linux_bold, linux_bold_alt])
+    font_regular = load_font(font_regular_path, REGULAR_SIZE, [mac_regular, linux_regular, linux_regular_alt])
     
     # Dynamic Positioning based on the provided Template.png structure
     W, H = img.size
